@@ -4,8 +4,15 @@
   "description": "The Wright Company Website",
   "main": "index.html",
   "scripts": {
+    "start": "lite-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Gautham",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  },
+  "devDependencies": {
+    "lite-server": "^2.5.4"
+  }
 }
