@@ -1,0 +1,11 @@
+{
+  "name": "wrightco",
+  "version": "1.0.0",
+  "description": "The Wright Company Website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gautham",
+  "license": "ISC"
+}
