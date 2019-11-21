@@ -6,11 +6,23 @@ body {
 }
 
 #hero {
+    position: relative;
     height: calc(100vh - 2*(1.5 * 1.25rem + 0.6250rem + 3rem));
-    background-color: turquoise;
     background-image: url('../img/hero.jpg');
     background-size: cover;
     background-position: center;
+}
+
+#hero-content {
+    position: absolute;
+    bottom: 0.3125rem;
+    width: 75%;
+    background-color: ghostwhite;
+    opacity: 0.8;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-style: italic;
+    border-radius: 1rem;
 }
 
 .letterbox {
