@@ -1,0 +1,20 @@
+body {
+    --navbarFontSize: 1.25rem;
+    --navbarLineHeight: calc(var(--navbarFontSize) * 1.5);
+    position: relative;
+    top: calc(1.5 * 1.25rem + 0.6250rem + 3rem);
+}
+
+#hero {
+    height: calc(100vh - 2*(1.5 * 1.25rem + 0.6250rem + 3rem));
+    background-color: turquoise;
+    background-image: url('../img/hero.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.letterbox {
+    border: 1px solid black;
+    margin: 0.3125rem;
+    padding: 0.3125rem 0.6250rem 0.3125rem 0.6250rem;
+}

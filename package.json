@@ -10,7 +10,9 @@
   "author": "Gautham",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^4.3.1"
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.0"
   },
   "devDependencies": {
     "lite-server": "^2.5.4"
