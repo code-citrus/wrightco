@@ -3,14 +3,16 @@ body {
     --navbarLineHeight: calc(var(--navbarFontSize) * 1.5);
     position: relative;
     top: calc(1.5 * 1.25rem + 0.6250rem + 3rem);
+    background-color: black;
 }
 
 #hero {
     position: relative;
-    height: calc(100vh - 2*(1.5 * 1.25rem + 0.6250rem + 3rem));
-    background-image: url('../img/hero.jpg');
-    background-size: cover;
-    background-position: center;
+    height: calc(100vh - (1.5 * 1.25rem + 0.6250rem + 3rem));
+    background-color: black;
+    background-image: url('../img/glider.png');
+    background-position: 75% center;
+    background-repeat: no-repeat;
 }
 
 #hero-content {
@@ -23,6 +25,7 @@ body {
     font-size: 1.5rem;
     font-style: italic;
     border-radius: 1rem;
+    display: none;
 }
 
 .letterbox {
@@ -32,5 +35,10 @@ body {
 }
 
 main {
+    background-color: black; /* #0b0f13 */
     min-height: calc(100vh - 2*(1.5 * 1.25rem + 0.6250rem + 3rem));
+}
+
+.row {
+    min-height: 100vh;
 }
