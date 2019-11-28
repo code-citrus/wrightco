@@ -3,6 +3,13 @@ body {
     background-color: black;
 }
 
+:root {
+    --lineHeight: calc(1.25rem * 1.5);
+    --navbarBrand: calc(0.3125rem * 2);
+    --navbar: calc(2 * 0.5rem);
+    --navHeight: calc(var(--lineHeight) + var(--navbarBrand) + var(--navbar));
+}
+
 main {
     /*
      * Need to calculate the height of the nav-bar. Since the .letterbox's
@@ -12,20 +19,28 @@ main {
      * nav bar. Therefore, the total height of the navbar is:
      * [line height] + [.navbar-brand padding, border, margin] + [navbar padding...]
      */
-    --lineHeight: calc(1.25rem * 1.5);
-    --navbarBrand: calc(0.3125rem * 2);
-    --navbar: calc(2 * 0.5rem);
-    position: relative;
-    top: calc(var(--lineHeight) + var(--navbarBrand) + var(--navbar));
+    top: var(--navHeight);
+    height: calc(100vh - var(--navHeight));
+    width: 100vw;
+    position: fixed;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* Hide scrollbar: IE10+ */
+    scrollbar-width: none; /* Hide scrollbar: Firefox */
+
+    /* Scroll snapping at each section */
+    scroll-snap-type: y mandatory;
 }
+
+main::-webkit-scrollbar { display: none; /* Hide scrollbar: Safari Chrome */ }
 
 #hero {
     position: relative;
-    height: calc(100vh - (1.5 * 1.25rem + 0.6250rem + 3rem));
+    height: calc(100vh - var(--navHeight));
     background-color: black;
     background-image: url('../img/glider.png');
     background-position: 75% center;
     background-repeat: no-repeat;
+    scroll-snap-align: start;
 }
 
 #hero-content {
@@ -52,11 +67,9 @@ main {
     padding: 0.3125rem 0.6250rem 0.3125rem 0.6250rem;
 }
 
-main {
-    background-color: black; /* #0b0f13 */
-    min-height: calc(100vh - 2*(1.5 * 1.25rem + 0.6250rem + 3rem));
-}
-
-.row {
-    min-height: 100vh;
+section .row {
+    scroll-snap-align: start;
+    min-height: calc(100vh - var(--navHeight));
+    position: relative;
+    bottom: 3rem;
 }
