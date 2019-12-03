@@ -6,32 +6,37 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
       - image: circleci/node:12.13
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
 
     working_directory: ~/repo
 
     steps:
+
+      # Checkout code form github automatically
       - checkout
 
-      # Download and cache dependencies
+      # Try to find a cache that was made w/ the same
+      # package-lock.json. If not, just use some node
+      # modules cache.
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-{{ checksum "package-lock.json" }}
             - v1-dependencies-
 
-      - run: yarn install
+      # Update the restored cache & build the website
+      # into the dist/ directory
+      - run: npm install && npx webpack
 
+      # This will duplicate the repo, the pull the latest
+      # gh-pages branch from GitHub. The contents of the
+      # branch is overwritten with the new contents of
+      # dist/. The chagnes are commited and pushed upstream.
+      # The gh-pages branch is special in that GitHub will
+      # use this branch for GitHub Pages.
+      - run: npx gh-pages --dist "dist"
+
+      # Generate a new cache for new package-lock.json
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      # run tests!
-      - run: yarn test
+          key: v1-dependencies-{{ checksum "package-lock.json" }}
