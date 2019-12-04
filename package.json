@@ -5,13 +5,15 @@
   "main": "index.html",
   "scripts": {
     "start": "lite-server",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "build": "copyfiles index.html dist/ && webpack"
   },
   "author": "Gautham",
   "license": "ISC",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
     "bootstrap": "^4.3.1",
+    "copyfiles": "^2.1.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0"
   },
