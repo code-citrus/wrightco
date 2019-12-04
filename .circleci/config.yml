@@ -25,7 +25,7 @@ jobs:
 
       # Update the restored cache & build the website
       # into the dist/ directory
-      - run: npm install && npx webpack
+      - run: npm install && npx webpack && copyfiles index.html dist/
 
       # Before we can deploy, we need to add SSH keys
       # that will give this machine the ability to push
