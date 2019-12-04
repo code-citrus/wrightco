@@ -41,11 +41,11 @@ jobs:
       # The gh-pages branch is special in that GitHub will
       # use this branch for GitHub Pages.
       - run:
-        name: "Deploy to GitHub Pages"
-        command: |
-          git config user.email "builds@circleci.com"
-          git config user.name "circleci"
-          npx gh-pages --dist "dist" -m "CI Deploy. [skip ci]"
+          name: "Deploy to GitHub Pages"
+          command: |
+            git config user.email "builds@circleci.com"
+            git config user.name "circleci"
+            npx gh-pages --dist "dist" -m "CI Deploy. [skip ci]"
 
       # Generate a new cache for new package-lock.json
       - save_cache:
