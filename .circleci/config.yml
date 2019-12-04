@@ -33,6 +33,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "87:f7:89:c6:32:eb:57:ef:26:fa:a9:b0:35:f3:a4:e4"
+        
       # This will duplicate the repo, the pull the latest
       # gh-pages branch from GitHub. The contents of the
       # branch is overwritten with the new contents of
@@ -40,7 +41,7 @@ jobs:
       # The gh-pages branch is special in that GitHub will
       # use this branch for GitHub Pages.
       - run:
-        name: Deploy
+        name: "Deploy to GitHub Pages""
         command: |
           git config user.email "builds@circleci.com"
           git config user.name "circleci"
