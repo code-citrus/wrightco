@@ -33,7 +33,12 @@ jobs:
       # dist/. The chagnes are commited and pushed upstream.
       # The gh-pages branch is special in that GitHub will
       # use this branch for GitHub Pages.
-      - run: npx gh-pages --dist "dist"
+      - run:
+        name: Deploy
+        command: |
+          git config user.email "builds@circleci.com"
+          git config user.name "circleci"
+          npx gh-pages --dist "dist" -m "CI Deploy. [skip ci]"
 
       # Generate a new cache for new package-lock.json
       - save_cache:
