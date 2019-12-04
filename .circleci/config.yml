@@ -27,6 +27,12 @@ jobs:
       # into the dist/ directory
       - run: npm install && npx webpack
 
+      # Before we can deploy, we need to add SSH keys
+      # that will give this machine the ability to push
+      # to the current repo:
+      - add_ssh_keys:
+          fingerprints:
+            - "87:f7:89:c6:32:eb:57:ef:26:fa:a9:b0:35:f3:a4:e4"
       # This will duplicate the repo, the pull the latest
       # gh-pages branch from GitHub. The contents of the
       # branch is overwritten with the new contents of
