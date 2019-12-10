@@ -28,7 +28,7 @@ main {
     scrollbar-width: none; /* Hide scrollbar: Firefox */
 
     /* Scroll snapping at each section */
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
 }
 
 main::-webkit-scrollbar { display: none; /* Hide scrollbar: Safari Chrome */ }
